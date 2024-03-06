@@ -1,24 +1,25 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+    <ProductDetails></ProductDetails>
+    <!-- <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome"/>
     <SeminarTask1/>
-    <ProductComp/>
+    <ProductComp/> -->
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
-import SeminarTask1 from "./components/SeminarTask1.vue";
-import ProductComp from './components/ProductComp.vue';
+import ProductDetails from './components/ProductDetails.vue';
+
+// import HelloWorld from './components/HelloWorld.vue';
+// import SeminarTask1 from "./components/SeminarTask1.vue";
+// import ProductComp from './components/ProductComp.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
-    SeminarTask1,
-    ProductComp
-  }
+    ProductDetails,
+  },
 }
 </script>
 
