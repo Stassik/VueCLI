@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <router-view :articles="articles"></router-view>
+    <router-view :articles="articles" :projects="projects"></router-view>
   </div>
 </template>
 <script>
@@ -9,45 +9,114 @@ export default {
   name: 'App',
   data() {
     return {
-        articles: [
-            {
-                title: 'Let’s Get Solution For Building Construction Work',
-                category: 'Kitchan Design',
-                date: '26 December,2022',
-                fileName: '2_1.jpg'
-            },
-            {
-                title: 'Low Cost Latest Invented Interior Designing Ideas. Work',
-                category: 'Living Design',
-                date: '22 December,2022',
-                fileName: '2_2.jpg'
-            },
-            {
-                title: 'Best For Any Office & Business Interior Solution',
-                category: 'Interior Design',
-                date: '25 December,2022',
-                fileName: '2_3.jpg'
-            },
-            {
-                title: 'Let’s Get Solution For Building Construction Work',
-                category: 'Kitchan Design',
-                date: '26 December,2022',
-                fileName: '2_4.jpg'
-            },
-            {
-                title: 'Low Cost Latest Invented Interior Designing Ideas. Work',
-                category: 'Living Design',
-                date: '22 December,2022',
-                fileName: '2_5.jpg'
-            },
-            {
-                title: 'Best For Any Office & Business Interior Solution',
-                category: 'Interior Design',
-                date: '25 December,2022',
-                fileName: '2_6.jpg'
-            },
+        articles:{
+                array: [
+                {
+                    title: 'Let’s Get Solution For Building Construction Work',
+                    category: 'Kitchan Design',
+                    date: '26 December,2022',
+                    fileName: '2_1.jpg'
+                },
+                {
+                    title: 'Low Cost Latest Invented Interior Designing Ideas. Work',
+                    category: 'Living Design',
+                    date: '22 December,2022',
+                    fileName: '2_2.jpg'
+                },
+                {
+                    title: 'Best For Any Office & Business Interior Solution',
+                    category: 'Interior Design',
+                    date: '25 December,2022',
+                    fileName: '2_3.jpg'
+                },
+                {
+                    title: 'Let’s Get Solution For Building Construction Work',
+                    category: 'Kitchan Design',
+                    date: '26 December,2022',
+                    fileName: '2_4.jpg'
+                },
+                {
+                    title: 'Low Cost Latest Invented Interior Designing Ideas. Work',
+                    category: 'Living Design',
+                    date: '22 December,2022',
+                    fileName: '2_5.jpg'
+                },
+                {
+                    title: 'Best For Any Office & Business Interior Solution',
+                    category: 'Interior Design',
+                    date: '25 December,2022',
+                    fileName: '2_6.jpg'
+                },
 
-        ],
+            ],
+            tabs: [
+                { name: 'Kitchan' },
+                { name: 'Bedroom' },
+                { name: 'Interior' },
+                { name: 'Living' },
+            ]
+        } ,
+        projects: {
+
+            array: [
+                {
+                    category: 'Modern Kitchan',
+                    subCategory: 'Decor / Artchitecture',
+                    fileName: '1.jpg'
+                },
+                {
+                    category: 'Modern Kitchan',
+                    subCategory: 'Decor / Artchitecture',
+                    fileName: '2.jpg'
+                },
+                {
+                    category: 'Modern Kitchan',
+                    subCategory: 'Decor / Artchitecture',
+                    fileName: '3.jpg'
+                },
+                {
+                    category: 'Modern Bathroom',
+                    subCategory: 'Decor / Artchitecture',
+                    fileName: '4.jpg'
+                },
+                {
+                    category: 'Minimal Bedroom',
+                    subCategory: 'Decor / Artchitecture',
+                    fileName: '5.jpg'
+                },
+                {
+                    category: 'Minimal Bedroom',
+                    subCategory: 'Decor / Artchitecture',
+                    fileName: '6.jpg'
+                },
+                {
+                    category: 'Classic Minimal Bathroom',
+                    subCategory: 'Decor / Artchitecture',
+                    fileName: '7.jpg'
+                },
+                {
+                    category: 'Modern Living room',
+                    subCategory: 'Decor / Artchitecture',
+                    fileName: '8.jpg'
+                },
+                {
+                    category: 'System Table',
+                    subCategory: 'Decor / Artchitecture',
+                    fileName: '9.jpg'
+                },
+                {
+                    category: 'Modern Bedroom',
+                    subCategory: 'Decor / Artchitecture',
+                    fileName: '10.jpg'
+                }
+            ],
+            tabs: [
+                { name: 'Kitchan' },
+                { name: 'Bedroom' },
+                { name: 'Bathroom' },
+                { name: 'Living' },
+            ],
+        }        
     }
   },
 }

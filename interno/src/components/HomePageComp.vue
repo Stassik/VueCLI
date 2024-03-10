@@ -24,62 +24,7 @@
                     description="It is a long established fact that a reader will be distracted by the of readable content of page lookings at its layouts points."></HeadingSection>
                     
                     <ul class="projects__list list">
-                        <li class="projects__item">
-                            <img src="../assets/1.jpg" alt="item photo" class="projects__item-img">
-                            <div class="projects__item-box">
-                                <div class="prodects__item-descr">
-                                    <h3 class="projects__item-title subtitle">Modern Kitchan</h3>
-                                    <p class="projects__item-text text">Decor / Artchitecture</p>
-                                </div>
-                                <button class="projects__item-btn btn btn-light">
-                                    <svg class="projects__btn-icon btn-icon">
-                                        <use xlink:href="../assets/sprite.svg#arrow_right"></use>
-                                    </svg>
-                                </button>
-                            </div>
-                        </li>
-                        <li class="projects__item">
-                            <img src="../assets/2.jpg" alt="item photo" class="projects__item-img">
-                            <div class="projects__item-box">
-                                <div class="prodects__item-descr">
-                                    <h3 class="projects__item-title subtitle">Modern Kitchan</h3>
-                                    <p class="projects__item-text text">Decor / Artchitecture</p>
-                                </div>
-                                <button class="projects__item-btn btn btn-light">
-                                    <svg class="projects__btn-icon btn-icon">
-                                        <use xlink:href="../assets/sprite.svg#arrow_right"></use>
-                                    </svg>
-                                </button>
-                            </div>
-                        </li>
-                        <li class="projects__item">
-                            <img src="../assets/3.jpg" alt="item photo" class="projects__item-img">
-                            <div class="projects__item-box">
-                                <div class="prodects__item-descr">
-                                    <h3 class="projects__item-title subtitle">Modern Kitchan</h3>
-                                    <p class="projects__item-text text">Decor / Artchitecture</p>
-                                </div>
-                                <button class="projects__item-btn btn btn-light">
-                                    <svg class="projects__btn-icon btn-icon">
-                                        <use xlink:href="../assets/sprite.svg#arrow_right"></use>
-                                    </svg>
-                                </button>
-                            </div>
-                        </li>
-                        <li class="projects__item">
-                            <img src="../assets/4.jpg" alt="item photo" class="projects__item-img">
-                            <div class="projects__item-box">
-                                <div class="prodects__item-descr">
-                                    <h3 class="projects__item-title subtitle">Modern Kitchan</h3>
-                                    <p class="projects__item-text text">Decor / Artchitecture</p>
-                                </div>
-                                <button class="projects__item-btn btn btn-light">
-                                    <svg class="projects__btn-icon btn-icon">
-                                        <use xlink:href="../assets/sprite.svg#arrow_right"></use>
-                                    </svg>
-                                </button>
-                            </div>
-                        </li>
+                        <ProjectsComp v-for="project in projectsPreview" :key="project.id" :item="project"></ProjectsComp>
                     </ul>
                 </div>
             </section>
@@ -113,7 +58,7 @@
                     </HeadingSection>
 
                     <ul class="articles__list list" id="articles">
-                        <ArticlesComp v-for="article in articles" :key="article.id" :item="article"></ArticlesComp>
+                        <ArticlesComp v-for="article in articles.array" :key="article.id" :item="article"></ArticlesComp>
                     </ul>
                 </div>
             </section>
@@ -126,20 +71,28 @@ import HeaderComp from './HeaderComp.vue';
 import FooterComp from './FooterComp.vue';
 import HeadingSection from './HeadingSection.vue';
 import ArticlesComp from './ArticlesComp.vue';
+import ProjectsComp from './ProjectsComp.vue';
 
 
 export default {
     name: 'HomePageComp',
     props: {
-    articles: Array
+    articles: Object,
+    projects: Object
   },
 
     components: {
     HeaderComp,
     FooterComp,
     HeadingSection,
-    ArticlesComp
+    ArticlesComp,
+    ProjectsComp
   },
+    computed: {
+        projectsPreview () {
+            return this.projects.array.slice(0, 4);
+        }
+    }
 }
 </script>
 

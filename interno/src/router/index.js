@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 // import HomeView from '../views/HomeView.vue'
 import HomePageComp from '@/components/HomePageComp.vue'
 import BlogPageComp from '@/components/BlogPageComp.vue'
+import ProjectPageComp from '@/components/ProjectPageComp.vue'
 import PageSingleComp from '@/components/PageSingleComp.vue'
 
 Vue.use(VueRouter)
@@ -17,6 +18,11 @@ const routes = [
     path: '/blog',
     name: 'blog',
     component: BlogPageComp
+  },
+  {
+    path: '/project',
+    name: 'project',
+    component: ProjectPageComp
   },
   {
     path: '/page-single',

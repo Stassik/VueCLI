@@ -1,17 +1,8 @@
 <template>
-    <div class="blog">
+    <div class="">
         <HeaderComp></HeaderComp>
         <main class="main blog">
-            <section class="banner banner-blog">
-                <img class="banner__img" src="../assets/blog-banner.jpg" alt="banner image">
-                <div class="banner__descr-blog">
-                    <div class="banner__title-blog title">Articles & News</div>
-                    <div class="banner__breadcrumbs">
-                        <router-link to="/" class="breadcrumbs__link">Home</router-link>
-                        <span class="breadcrumbs__link">Blog</span>
-                    </div>
-                </div>
-            </section>
+            <BannerSection :page="page"></BannerSection>
             <section class="blog-section blog__container container center">
                 <div class="blog__descr">
                     <h2 class="blog__title title">Latest Post</h2>
@@ -43,7 +34,7 @@
                     <h2 class="blog__title title">Articles & News</h2>
                 </div>
                 <ul class="articles__list list" id="articles">
-                    <ArticlesComp v-for="article in articles" :key="article.id" :item="article"></ArticlesComp>
+                    <ArticlesComp v-for="article in articles.array" :key="article.id" :item="article"></ArticlesComp>
                 </ul>
                 <div class="blog__pagination">
                     <div class="pagination__btn btn btn_active">01</div>
@@ -65,18 +56,28 @@
 import HeaderComp from './HeaderComp.vue';
 import ArticlesComp from './ArticlesComp.vue';
 import FooterComp from './FooterComp.vue';
+import BannerSection from './BannerSection.vue';
 
 export default {
     name: 'BlogPageComp',
     props: {
-    articles: Array
+    articles: Object
   },
-
     components: {
     HeaderComp,
+    BannerSection,
     ArticlesComp,
     FooterComp,
   },
+  data(){
+    return{
+        page:{
+            title: 'Articles & News',
+            src: 'blog-banner.jpg',
+            breadcrumb: 'Blog'
+        }
+    }
+  }
 }
 </script>
 

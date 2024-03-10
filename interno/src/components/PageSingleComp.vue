@@ -67,8 +67,12 @@
 
               <div class="single__sidebar">
                   <div class="sidebar__container">
-                    <FilterTabsComp :articles="articles"></FilterTabsComp>
-                          
+                    <div class="filter-articles">
+                        <FilterTabsComp :list="articles.array" :tabs="articles.tabs" :title="titleTags"  @newList="getNewList"></FilterTabsComp>
+                        <ul class="articles__list list" id="articles">
+                            <ArticlesComp v-for="article in newList" :key="article.id" :item="article"></ArticlesComp>
+                        </ul>
+                    </div>     
                   </div>
               </div>
           </section>
@@ -80,19 +84,32 @@
 <script>
 import HeaderComp from './HeaderComp.vue';
 import FilterTabsComp from './FilterTabsComp.vue';
+import ArticlesComp from './ArticlesComp.vue';
 import FooterComp from './FooterComp.vue';
 
 export default {
     name: 'PageSingleComp',
     props: {
-    articles: Array,
+    articles: Object,
     currentArticle: Object
   },
   components: {
     HeaderComp,
     FilterTabsComp,
+    ArticlesComp,
     FooterComp,
   },
+  data(){
+    return{
+        titleTags: 'Tags',
+        newList:[],
+    }
+  },
+  methods: {
+    getNewList(newList){
+        this.newList = newList
+    }
+  }
 }
 </script>
 <style>
