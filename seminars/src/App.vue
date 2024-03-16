@@ -4,18 +4,21 @@
     <UserList></UserList>
     <BookList></BookList>
     <MovieList></MovieList>
+    <CounterComp></CounterComp>
+    <StoreComp></StoreComp>
+    
+    
   </div>
 </template>
 
 <script>
+
 import ProductDetails from './components/ProductDetails.vue';
 import UserList from './components/UserList.vue';
 import BookList from './components/BookList.vue';
 import MovieList from './components/MovieList.vue';
-
-// import HelloWorld from './components/HelloWorld.vue';
-// import SeminarTask1 from "./components/SeminarTask1.vue";
-// import ProductComp from './components/ProductComp.vue';
+import CounterComp from './components/CounterComp.vue';
+import StoreComp from './components/StoreComp.vue';
 
 export default {
   name: 'App',
@@ -23,8 +26,11 @@ export default {
     ProductDetails,
     UserList,
     BookList,
-    MovieList
+    MovieList,
+    CounterComp,
+    StoreComp
   },
+  
 }
 </script>
 

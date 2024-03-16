@@ -2,11 +2,12 @@
     <div class="">
         <h2 class="">Задание 2</h2>
         <ul>
-        <BookItem v-for="book in bookList" :key="book.id" :book="book"></BookItem>
+        <BookItem v-for="book in getBookList" :key="book.id" :book="book"></BookItem>
         </ul>
     </div>    
 </template>
 <script>
+import { mapState, mapGetters } from 'vuex';
 import BookItem from './BookItem.vue';
 export default {
     name:'BookList',
@@ -15,14 +16,14 @@ export default {
     },
     data(){
         return{
-            bookList: [
-                {name: 'Книга 1',author: 'Автор 1', year: '2020', descr: 'Дополнительное описание'},
-                {name: 'Книга 2',author: 'Автор 2', year: '2024', descr: 'Дополнительное описание'},
-                {name: 'Книга 3',author: 'Автор 3', year: '2022', descr: 'Дополнительное описание'},
-                {name: 'Книга 4',author: 'Автор 4', year: '2021', descr: ''},
-            ]
         }
-    }
+    },
+
+    computed: {
+    ...mapState(['bookList']),
+    ...mapGetters(['getBookList'])
+  },
+  
 }
 </script>
 <style>
