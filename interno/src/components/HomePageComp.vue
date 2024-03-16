@@ -24,7 +24,7 @@
                     description="It is a long established fact that a reader will be distracted by the of readable content of page lookings at its layouts points."></HeadingSection>
                     
                     <ul class="projects__list list">
-                        <ProjectsComp v-for="project in projectsPreview" :key="project.id" :item="project"></ProjectsComp>
+                        <ProjectsComp v-for="project in getProjectsPreview" :key="project.id" :item="project"></ProjectsComp>
                     </ul>
                 </div>
             </section>
@@ -58,7 +58,7 @@
                     </HeadingSection>
 
                     <ul class="articles__list list" id="articles">
-                        <ArticlesComp v-for="article in articles.array" :key="article.id" :item="article"></ArticlesComp>
+                        <ArticlesComp v-for="article in articlesData.array" :key="article.id" :item="article"></ArticlesComp>
                     </ul>
                 </div>
             </section>
@@ -72,15 +72,10 @@ import FooterComp from './FooterComp.vue';
 import HeadingSection from './HeadingSection.vue';
 import ArticlesComp from './ArticlesComp.vue';
 import ProjectsComp from './ProjectsComp.vue';
-
+import {mapState, mapGetters} from 'vuex';
 
 export default {
     name: 'HomePageComp',
-    props: {
-    articles: Object,
-    projects: Object
-  },
-
     components: {
     HeaderComp,
     FooterComp,
@@ -89,9 +84,11 @@ export default {
     ProjectsComp
   },
     computed: {
-        projectsPreview () {
-            return this.projects.array.slice(0, 4);
-        }
+        // ...mapState(['articlesData', 'projectsData']),
+        ...mapState(['articlesData']),
+        ...mapGetters(['getProjectsPreview']),
+    },
+    methods: {
     }
 }
 </script>

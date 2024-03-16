@@ -6,11 +6,11 @@
                 <h3 class="projects__item-title subtitle">{{item.category}}</h3>
                 <p class="projects__item-text text">{{item.subCategory}}</p>
             </div>
-            <button class="projects__item-btn btn btn-light">
+            <router-link to="/project-details" class="projects__item-btn btn btn-light">
                 <svg class="projects__btn-icon btn-icon">
                     <use xlink:href="../assets/sprite.svg#arrow_right"></use>
                 </svg>
-            </button>
+            </router-link>
         </div>
     </li>
 </template>
