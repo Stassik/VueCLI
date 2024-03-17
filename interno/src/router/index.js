@@ -5,6 +5,7 @@ import BlogPageComp from '@/components/BlogPageComp.vue'
 import ProjectPageComp from '@/components/ProjectPageComp.vue'
 import PageSingleComp from '@/components/PageSingleComp.vue'
 import ProjectDetailsComp from '@/components/ProjectDetailsComp.vue'
+import NotFoundPage from '@/components/NotFoundPage.vue'
 
 Vue.use(VueRouter)
 
@@ -36,17 +37,19 @@ const routes = [
     component: ProjectDetailsComp,
     props: true,
   },
-  // {
-  //   path: '/about',
-  //   name: 'about',
-  //   // route level code-splitting
-  //   // this generates a separate chunk (about.[hash].js) for this route
-  //   // which is lazy-loaded when the route is visited.
-  //   component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  // }
+  {
+    path: '/404',
+    name: '404',
+    component: NotFoundPage,
+  },
+  {
+    path: '*',
+    redirect: { name: '404' },
+  }
 ]
 
 const router = new VueRouter({
+  mode: 'history',
   routes
 })
 
